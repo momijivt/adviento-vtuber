@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+}
+
+.btn-start {
+    background-color: rgb(207, 45, 45);
+    color: white;
+    border: 2px solid #512751;
+    border-radius: 15px;
+    margin: 15px auto;
+    display: block;
+    width: 10rem;
+    height: 2rem;
+}
+
+.btn-start:hover {
+    cursor: pointer;
+}
+
+.container {
+    position: relative; /* necesario para el posicionamiento relativo del pseudo-elemento */
+    width: 800px;
+    height: 900px;
+    border: 5px solid black;
+    margin: 15px auto;
+    background-image: url("./courses/calendar.png");
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.15); /* negro con 10% de opacidad */
+    pointer-events: none;  /* permite click en elementos debajo */
+    z-index: 1;            /* por encima del fondo, debajo del contenido */
+}
+
+/* para que el contenido del container quede por encima */
+
+.container > * {
+    position: relative;
+    z-index: 2;
+}
+
+.image {
+    background-image: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image:hover {
+    cursor: pointer;
+}
+
+
+.text {
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    transition: opacity 2.5s;
+    font-size: 3rem;          /* Tamaño más grande de los números */
+    font-family: 'Arial Black', Arial, sans-serif; /* Tipo de letra más gruesa/destacada */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    text-shadow:
+    1px 1px 0 black,
+    -1px 1px 0 black,
+    1px -1px 0 black,
+    -1px -1px 0 black;     /* Centrar vertical y horizontalmente */
+}
